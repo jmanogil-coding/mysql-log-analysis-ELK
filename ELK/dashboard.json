@@ -1,0 +1,24 @@
+[
+  {
+    "_id": "6e30df50-4259-11e9-b753-5f66c4178ba2",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Stored procedures calls",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"x\":0,\"y\":0,\"w\":21,\"h\":20,\"i\":\"1\"},\"id\":\"2e898330-4258-11e9-b753-5f66c4178ba2\",\"panelIndex\":\"1\",\"type\":\"visualization\",\"version\":\"6.6.1\",\"title\":\"Percentage stored procedure calls\"},{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"x\":21,\"y\":0,\"w\":24,\"h\":20,\"i\":\"2\"},\"id\":\"219b8330-4afa-11e9-9081-db180161fbc0\",\"panelIndex\":\"2\",\"title\":\"# Stored procedures calls \",\"type\":\"visualization\",\"version\":\"6.6.1\"}]",
+      "optionsJSON": "{\"darkTheme\":true,\"hidePanelTitles\":false,\"useMargins\":true}",
+      "version": 1,
+      "timeRestore": true,
+      "timeTo": "2025-12-31T23:59:59.999Z", 
+      "timeFrom": "2010-01-01T00:00:00.000Z",
+      "refreshInterval": {
+        "pause": true,
+        "value": 0
+      },
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"language\":\"lucene\",\"query\":\"\"},\"filter\":[{\"$state\":{\"store\":\"appState\"},\"meta\":{\"alias\":null,\"disabled\":true,\"index\":\"7752da50-4256-11e9-b753-5f66c4178ba2\",\"key\":\"sp_name.keyword\",\"negate\":false,\"params\":{\"query\":\"usp_person_sel\",\"type\":\"phrase\"},\"type\":\"phrase\",\"value\":\"usp_person_sel\"},\"query\":{\"match\":{\"sp_name.keyword\":{\"query\":\"usp_person_sel\",\"type\":\"phrase\"}}}}]}"
+      }
+    }
+  }
+]
