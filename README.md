@@ -82,10 +82,14 @@ mysql> show variables like '%general_log%';
 
 Elasticsearch is the heart of the so called **Elastic Stack**. It serves as a central data store which receives in this project solely information filtered through pipelines Logstash and Filebeat 
 
-Before its installation, you may need to install the package `apt-transport-https`
+Before starting, you may need to install the package `apt-transport-https`
 ```
 $ sudo apt-get install apt-transport-https
 ```
+Elasticsearch signs all its installation packages with a PGP key, first of all, download and install that key
+```
+wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+``` 
 Save the repository definition
 ```
 $ echo "deb https://artifacts.elastic.co/packages/6.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list
