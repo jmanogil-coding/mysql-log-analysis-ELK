@@ -88,7 +88,7 @@ $ sudo apt-get install apt-transport-https
 ```
 Elasticsearch signs all its installation packages with a PGP key, first of all, download and install that key
 ```
-wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+$ wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 ``` 
 Save the repository definition
 ```
