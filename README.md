@@ -86,7 +86,7 @@ Before starting, you may need to install the package `apt-transport-https`
 ```
 $ sudo apt-get install apt-transport-https
 ```
-Check your present Java version because perhaps yours is more recent than Java 8, which **Elasticsearch** 
+Check your present Java version because perhaps yours is more recent than Java 8, which **Elasticsearch** needs
 ```
 $ java -version
 ``` 
@@ -106,9 +106,13 @@ Install Elasticsearch
 ```
 $ sudo apt-get update && sudo apt-get install elasticsearch
 ```
-It is recommended to edit file `/etc/elasticsearch/elasticsearch.yml` to bind to this server from any other IP, although it is not a prerequisite 
+Some changes shoudl be made in file `/etc/elasticsearch/elasticsearch.yml`. The first one to bind to this server from any other IP
 ```
 network.host: 0.0.0.0
+```
+The second one allows us to avoid the bootstrap checks, because it thinks we are in a production deployment
+```
+discovery.type: single-node
 ```
 Enable and start the new service
 ```
@@ -149,7 +153,7 @@ http://localhost:5601
 
 ### Logstash
 
-Logstash is a data processing pipeline that can ingest data from several sources (in our case Filebeat), filter it, transform it, and send it to your final destination (Elasticsearch in this project). Do not worry about the sync between Logsash and Filebeat, they use a back-pressure sensitive control to prevent from congestion problems.
+Logstash is a data processing pipeline that can ingest data from several sources (in our case Filebeat), filter it, transform it, and send it to your final destination (Elasticsearch in this project). Do not worry about the sync between Logstash and Filebeat, they use a back-pressure sensitive control to prevent from congestion problems.
 
 Install Logstash
 ```
@@ -269,15 +273,15 @@ Management -> Saved Objects -> Import
 ```
 You must import these files
 ```
-ELK/index_pattern.json
-ELK/visualizations.json
-ELK/dashboard.json
+ELK/index_pattern.ndjson
+ELK/visualizations.ndjson
+ELK/dashboard.ndjson
 ```
 Once import is done, you should go to `Dashboard` section and search for `Stored procedures calls`. You will see something like this  
  
 ![](images/kibana-dashboard.PNG)
 
-This dashboard is showing the use of the database on the basis of its stored procedures calls. Just the challenge we set ourselves at the beginning of the project. 
+This dashboard is showing the use of the database on the basis of its stored procedures calls, just the challenge we set ourselves at the beginning of the project. 
 
 Great job :smiley:!  
 
