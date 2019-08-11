@@ -80,11 +80,19 @@ mysql> show variables like '%general_log%';
 
 ### Elasticsearch
 
-Elasticsearch is the heart of the so called **Elastic Stack**. It serves as a central data store which receives in this project solely information filtered through pipelines Logstash and Filebeat 
+Elasticsearch is the heart of the so called **Elastic Stack**. It serves as a central data store which receives in this project solely information filtered through pipelines Logstash and Filebeat. 
 
 Before starting, you may need to install the package `apt-transport-https`
 ```
 $ sudo apt-get install apt-transport-https
+```
+Check your present Java version because perhaps yours is more recent than Java 8, which **Elasticsearch** 
+```
+$ java -version
+``` 
+In case of several JMV on your system, use this command to change it and select the version 8 (1.8.0)
+```
+$ sudo update-alternatives --config java
 ```
 Elasticsearch signs all its installation packages with a PGP key, first of all, download and install that key
 ```
@@ -92,7 +100,7 @@ $ wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key a
 ``` 
 Save the repository definition
 ```
-$ echo "deb https://artifacts.elastic.co/packages/6.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list
+$ echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
 ```
 Install Elasticsearch
 ```
@@ -143,14 +151,6 @@ http://localhost:5601
 
 Logstash is a data processing pipeline that can ingest data from several sources (in our case Filebeat), filter it, transform it, and send it to your final destination (Elasticsearch in this project). Do not worry about the sync between Logsash and Filebeat, they use a back-pressure sensitive control to prevent from congestion problems.
 
-This tool requires Java 8. Check your present Java version because perhaps yours is more recent 
-```
-$ java -version
-``` 
-In case of several JMV on your system, use this command to change it and select the version 8 (1.8.0)
-```
-$ sudo update-alternatives --config java
-```
 Install Logstash
 ```
 $ sudo apt-get update && sudo apt-get install logstash
