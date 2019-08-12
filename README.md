@@ -86,11 +86,11 @@ Before starting, you may need to install the package `apt-transport-https`
 ```
 $ sudo apt-get install apt-transport-https
 ```
-Check your present Java version because perhaps yours is more recent than Java 8, which **Elasticsearch** needs
+Check your present Java version because perhaps yours is different from Java 8 or Java 11, which **Elasticsearch** needs
 ```
 $ java -version
 ``` 
-In case of several JMV on your system, use this command to change it and select the version 8 (1.8.0)
+In case of several JMV on your system, use this command to change it and select the version 8 or 11
 ```
 $ sudo update-alternatives --config java
 ```
